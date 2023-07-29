@@ -36,19 +36,6 @@ for(let j=0; j<8; j++){
                 x*=-1
                 update()
             }
-            
-            /*neg = !neg
-            //adjust equal protocol
-            //display
-            if(neg){
-                console.log("negative")
-                display.innerText = display.innerText=="" ? "-" : `-${x}`
-            }
-            else{
-                console.log("positive")
-                display.innerText=x
-            }
-            x = -1x*/
         }
         else if(p==4){
             //if empty or longths mismatched- invalid
@@ -80,6 +67,8 @@ for(let j=0; j<8; j++){
                 x = result
                 update()
                 x=0
+                numbers=[]
+                operations=[]
             }
             //else loop
 
