@@ -1,19 +1,21 @@
 //click number pad when
 //number clicking functionality
 //wrapping
-
-//padding, div change
+//pull, clean
+//padding, div change, negatives
 //all event listeners
 const nums = document.querySelectorAll(".num")
 const ops = document.querySelectorAll(".op")
-const display = document.querySelector(".display input")
+const display = document.querySelector(".display p")
 let numbers = [1, 2, 3]
 let operations = ["a"]
 let x = 0
+let neg = false;
 for(let i = 0; i<10; i++){
-    let p=i
+    let p =i
     nums[i].addEventListener("click", ()=>{
         x = x*10+p
+        if(neg){x*=-1;neg=false}
         ops[6].innerText="C"
         update()
     })
@@ -21,16 +23,40 @@ for(let i = 0; i<10; i++){
 
 
 //ops[1].addEventListener("click",()=>{console.log(ops[1].innerHTML)})
-for(let j=0; j<7; j++){
+for(let j=0; j<8; j++){
     let p=j
     ops[j].addEventListener("click", ()=>{
-        if(p==4){
+        if(p==7){
+            if(display.innerText=="" || display.innerText=="0"){
+                neg = !neg
+                if(neg){display.innerText="-"}
+                else{display.innerText=""}
+            }
+            else{
+                x*=-1
+                update()
+            }
+            
+            /*neg = !neg
+            //adjust equal protocol
+            //display
+            if(neg){
+                console.log("negative")
+                display.innerText = display.innerText=="" ? "-" : `-${x}`
+            }
+            else{
+                console.log("positive")
+                display.innerText=x
+            }
+            x = -1x*/
+        }
+        else if(p==4){
             //if empty or longths mismatched- invalid
             numbers.push(Number(x))
             if(numbers.length!=(operations.length+1)){
                 numbers = []
                 operations = []
-                display.value = "ERROR"
+                display.innerText = "ERROR"
                 x = 0;
                 console.log("Here")
             }
@@ -59,9 +85,9 @@ for(let j=0; j<7; j++){
 
         }
         else if(p==5){
-            x = Math.floor(Number(display.value)/10);
+            x = Math.floor(Number(display.innerText)/10);
             console.log(x)
-            display.value = x;
+            display.innerText = x;
         }
         else if(p==6){
             //if its c, the input = 0, inner text = AC
@@ -81,7 +107,7 @@ for(let j=0; j<7; j++){
         else {
             //its a code, add in the array things, clear display and x
             operations.push(p)
-            numbers.push(Number(x))
+            numbers.push(x)
             x = 0
             update()
         }
@@ -89,7 +115,7 @@ for(let j=0; j<7; j++){
 }
 //
 function update(){
-    display.value = x
+    display.innerText = x
 }
 
 //check for in a row; on green pop up (if valid else invalid reset); on switch back to displaying nums
