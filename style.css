@@ -18,11 +18,13 @@ body{
     margin: auto;
 }
 .display{
+    text-shadow: rgb(255, 255, 255) 1px 0 10px;
     background-color: rgb(141, 141, 141);
     border-radius: 10px;
     margin-right: 20%;
     padding: 5px;
     padding-left: 10px;
+    padding-right: 20px;
     padding-bottom: 10px;
     height: 30vh;
     width: 98%;
