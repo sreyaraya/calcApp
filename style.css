@@ -5,7 +5,6 @@ body{
     align-items: center;
     justify-content: center;
     font-family: "Orbitron", sans-serif;
-
 }
 
 .calculator{
@@ -18,20 +17,22 @@ body{
     max-width: 1400px;
     margin: auto;
 }
-.display input{
+.display{
+    text-shadow: rgb(255, 255, 255) 1px 0 10px;
     background-color: rgb(141, 141, 141);
     border-radius: 10px;
+    margin-right: 20%;
     padding: 5px;
     padding-left: 10px;
+    padding-right: 20px;
     padding-bottom: 10px;
     height: 30vh;
-    margin: auto;
+    width: 98%;
     font-size: 5rem;
-    width: 1440px;
-    max-width: 670px;
-    font-family: inherit;
-    outline: none;
-    
+    font-family: inherit;   
+}
+.display text{
+    color:aqua;
 }
 num{
     padding: 50px 0;
@@ -72,4 +73,3 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
